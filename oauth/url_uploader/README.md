@@ -16,3 +16,4 @@ The script takes 3 parameters:
 
 ## JSON format
 The input JSON file schema can be found on the Gfycat API reference page under the section [Gfycat creation parameters and options](http://developers.gfycat.com/api/#gfycat-creation-parameters-and-options).
+An example of the input array is in sample_urls.json.  Further details, such as title, tags, captions, etc can be added according to the api docs.

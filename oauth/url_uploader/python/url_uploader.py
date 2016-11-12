@@ -39,10 +39,12 @@ def main():
         while not verified_token:
             if 'fetchUrl' in message:
                 print 'Creating gfycat from {}'.format(message['fetchUrl'])
+	    else:
+		print 'json array should contain objects with at minimum a fetchUrl key.'
+		exit()
             headers = { 'Authorization': 'Bearer {}'.format(access_token) }
-            req = requests.post('https://api.gfycat.com/v1/gfycats', data=str(message), headers=headers)
+            req = requests.post('https://api.gfycat.com/v1/gfycats', data=json.dumps(message), headers=headers)
             res = req.json()
-
             if 'errorMessage' in res:
                 error_message = json.loads(res['errorMessage'])
                 if 'code' in error_message and error_message['code'] == 'Unauthorized':
